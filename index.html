@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manam Casino</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ffcc00" />
+</head>
+<body>
+  <a id="devLink" href="https://github.com/Md-Manam-Khan" target="_blank" rel="noopener noreferrer">Dev:Md-Manam-Khan</a>
+  <div class="card">
+    <div class="header">
+      <div class="badge">🎰</div>
+      <h1>Manam Tosser</h1>
+      <p class="subtitle">Spin, compete, and survive the wheel.</p>
+    </div>
+    <select id="mode" onchange="setupMode()">
+      <option value="">-- Select Mode --</option>
+      <option value="regular">🎲 Regular</option>
+      <option value="ranked">🏆 Ranked Elimination</option>
+      <option value="best3">⚔️ Best of 3</option>
+    </select>
+    <div id="inputArea" class="input-area"></div>
+    <button id="spinBtn" onclick="startGame()">🎰 SPIN</button>
+    <div class="wheel-container">
+      <canvas id="wheelCanvas" width="300" height="300"></canvas>
+      <div class="wheel-glow"></div>
+    </div>
+    <div id="result" class="result"></div>
+    <div id="rankBox" class="rank-box" style="display:none;"></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js");
+      });
+    }
+  </script>
+</body>
+</html>
